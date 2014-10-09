@@ -6,23 +6,32 @@
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
-       <double>310.0</double>
-       <double>90.0</double>
-       <double>100.0</double>
-       <double>100.0</double>
+       <double>210.0</double>
+       <double>80.0</double>
+       <double>300.0</double>
+       <double>140.0</double>
       </void>
      </object>
     </void>
     <void property="attributes">
      <void property="text">
-      <string>nome
-caminho
-author</string>
+      <string>-nome
+-caminho
+-caminhoCanonico</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>+AbrirArquivo(String nome, String caminho) : Arquivo
++SalvarComo(String caminho) :
+-oCaminhoEValido() : boolean
+-carregarConteudoDoArquivo() :
+</string>
      </void>
     </void>
     <void property="name">
      <void property="text">
-      <string>Arquivo</string>
+      <string>Arquivo &lt;extends&gt; java.io.File</string>
      </void>
     </void>
    </object>
@@ -31,19 +40,19 @@ author</string>
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double0"/>
-      <double>310.0</double>
+      <double>210.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double0"/>
-      <double>90.0</double>
+      <double>80.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>310.0</double>
-     <double>90.0</double>
+     <double>210.0</double>
+     <double>80.0</double>
     </void>
    </object>
   </void>
@@ -52,8 +61,8 @@ author</string>
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
-       <double>400.0</double>
-       <double>250.0</double>
+       <double>490.0</double>
+       <double>320.0</double>
        <double>360.0</double>
        <double>120.0</double>
       </void>
@@ -68,7 +77,7 @@ author</string>
     </void>
     <void property="methods">
      <void property="text">
-      <string>+InicializadorDeChave()
+      <string>+InicializadorDeChave(long seed)
 +encriptar(byte[] bytesDeEntrada, PublicKey publicKey) : byte[]
 +decriptar(byte[] bytesDeEntrada, PublicKey publicKey) : byte[]</string>
      </void>
@@ -85,19 +94,19 @@ author</string>
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double1"/>
-      <double>400.0</double>
+      <double>490.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double1"/>
-      <double>250.0</double>
+      <double>320.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>400.0</double>
-     <double>250.0</double>
+     <double>490.0</double>
+     <double>320.0</double>
     </void>
    </object>
   </void>
@@ -106,8 +115,8 @@ author</string>
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
-       <double>490.0</double>
-       <double>110.0</double>
+       <double>680.0</double>
+       <double>100.0</double>
        <double>180.0</double>
        <double>60.0</double>
       </void>
@@ -129,61 +138,19 @@ author</string>
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double2"/>
-      <double>490.0</double>
+      <double>680.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double2"/>
-      <double>110.0</double>
+      <double>100.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>490.0</double>
-     <double>110.0</double>
-    </void>
-   </object>
-  </void>
-  <void method="addNode">
-   <object class="com.horstmann.violet.DiagramLinkNode" id="DiagramLinkNode0">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>840.0</double>
-       <double>400.0</double>
-       <double>60.0</double>
-       <double>40.0</double>
-      </void>
-     </object>
-    </void>
-    <void property="bounds">
-     <void method="setRect">
-      <double>840.0</double>
-      <double>400.0</double>
-      <double>60.0</double>
-      <double>40.0</double>
-     </void>
-    </void>
-   </object>
-   <object class="java.awt.geom.Point2D$Double" id="Point2D$Double3">
-    <void class="java.awt.geom.Point2D$Double" method="getField">
-     <string>x</string>
-     <void method="set">
-      <object idref="Point2D$Double3"/>
-      <double>840.0</double>
-     </void>
-    </void>
-    <void class="java.awt.geom.Point2D$Double" method="getField">
-     <string>y</string>
-     <void method="set">
-      <object idref="Point2D$Double3"/>
-      <double>400.0</double>
-     </void>
-    </void>
-    <void method="setLocation">
-     <double>840.0</double>
-     <double>400.0</double>
+     <double>680.0</double>
+     <double>100.0</double>
     </void>
    </object>
   </void>
