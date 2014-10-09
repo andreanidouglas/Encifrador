@@ -4,6 +4,7 @@ import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.security.SecureRandom;
 
 import javax.crypto.Cipher;
 
@@ -18,19 +19,21 @@ public class Encifrador {
 		
 	}
 	
-	public void inicializadorDeChave()
+	public void inicializadorDeChave(long seed)
 	{
 		try
 		{
 			KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-			kpg.initialize(1024);
+			SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN");
+			random.setSeed(seed);
+			kpg.initialize(1024, random);
 			KeyPair kp = kpg.generateKeyPair();
 			_publicKey = kp.getPublic();
 			_privateKey = kp.getPrivate();
 		}
 		catch (Exception e)
 		{
-			//TODO: Implementar falhas
+			//TODO: Implementar falhas na inicializacao da chave
 			e.printStackTrace();
 		}
 	}
