@@ -1,23 +1,27 @@
 package encifrador.model;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+
 public class TestaOAlgoritimoDeCriptografia {
 
 	public static Encifrador en;
+	public static Chaveiro gdc;
 	public static byte[] textoASerCifradoEmBytes;
 	public static final String textoASerCifrado = "DJPSOIJDAPSODIUHQASDHasd";
 
 	@BeforeClass
 	public static void InicializaEncifrador() {
 		Random r = new Random();
+		gdc = new Chaveiro();
 		en = new Encifrador();
-		en.inicializadorDeChave(r.nextLong());
+		gdc.inicializadorDeChaves(r.nextLong());
 		textoASerCifradoEmBytes = textoASerCifrado.getBytes();
 
 	}
@@ -29,8 +33,7 @@ public class TestaOAlgoritimoDeCriptografia {
 		assertFalse(
 				"A string retornada é diferente",
 				new String(en.encriptar(textoASerCifradoEmBytes,
-						en.get_publicKey()), "UTF-8").equals(textoASerCifrado));
-
+						gdc.getPublicKey()), "UTF-8").equals(textoASerCifrado));
 	}
 
 	@Test
@@ -38,10 +41,10 @@ public class TestaOAlgoritimoDeCriptografia {
 			throws Exception {
 
 		byte[] stringCifrada = en.encriptar(textoASerCifradoEmBytes,
-				en.get_publicKey());
+				gdc.getPublicKey());
 
 		assertTrue("A string retornada é igual",
-				new String(en.decriptar(stringCifrada, en.get_privateKey()))
+				new String(en.decriptar(stringCifrada, gdc.getPrivateKey()))
 						.equals(textoASerCifrado));
 
 	}

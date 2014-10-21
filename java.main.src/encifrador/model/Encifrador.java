@@ -1,41 +1,17 @@
 package encifrador.model;
 
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import java.security.SecureRandom;
 
 import javax.crypto.Cipher;
 
 public class Encifrador {
 	
-	private PublicKey _publicKey;
-	private PrivateKey _privateKey;
-	private final String cifrador="RSA/ECB/PKCS1Padding";
+	private final String cifrador="RSA/ECB/PKCS1Padding"; //TODO: Interface de selecao de cifra
 	
 	public Encifrador()
 	{
 		
-	}
-	
-	public void inicializadorDeChave(long seed)
-	{
-		try
-		{
-			KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-			SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN");
-			random.setSeed(seed);
-			kpg.initialize(1024, random);
-			KeyPair kp = kpg.generateKeyPair();
-			_publicKey = kp.getPublic();
-			_privateKey = kp.getPrivate();
-		}
-		catch (Exception e)
-		{
-			//TODO: Implementar falhas na inicializacao da chave
-			e.printStackTrace();
-		}
 	}
 	
 	public byte[] encriptar(byte[] bytesDeEntrada, PublicKey publicKey) throws Exception
@@ -51,14 +27,4 @@ public class Encifrador {
 		cipher.init(Cipher.DECRYPT_MODE, privateKey);
 		return cipher.doFinal(bytesDeEntrada);
 	}
-
-	public PrivateKey get_privateKey() {
-		return _privateKey;
-	}
-
-	public PublicKey get_publicKey() {
-		return _publicKey;
-	}
-
-	
 }

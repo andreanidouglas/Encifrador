@@ -37,7 +37,7 @@ public class Arquivo extends File {
 		this.caminhoCanonico = caminhoCanonico;
 	}
 
-	private byte[] getConteudo() {
+	public byte[] getConteudo() {
 		return this.conteudo;
 	}
 
@@ -46,12 +46,27 @@ public class Arquivo extends File {
 		this.setCaminho(caminho);
 
 	}
+	
+	public static Arquivo CriarArquivo(String nome, String caminho, byte[] conteudo) throws IOException
+	{
+		Arquivo arquivo = new Arquivo(nome, caminho);
+		if (oCaminhoEValido(arquivo))
+		{
+			arquivo.conteudo = conteudo;
+			arquivo.SalvarComo(caminho);
+			return arquivo;
+		}
+		else
+		{
+			throw new FileNotFoundException("Caminho inválido");
+		}
+	}
 
-	private Arquivo(String nome, String caminho) {
+	private Arquivo(String nome, String caminho) 
+	{
 		super(caminho);
 		this.setNome(nome);
 		this.setCaminho(caminho);
-
 	}
 
 	public void SalvarComo(String caminho) throws IOException {
@@ -66,7 +81,7 @@ public class Arquivo extends File {
 	private void carregarConteudoDoArquivo() throws IOException {
 		Path p = this.toPath();
 		if (this.length() <= (20 * 1024 * 1024)) // Menor que 20MB Ajuda evitar
-													// OutOFMemory
+													// OutOFMemory Exception
 		{
 			this.conteudo = Files.readAllBytes(p);
 		} else {
